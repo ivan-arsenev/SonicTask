@@ -16,7 +16,7 @@ export function Tabs(props) {
   return (
     <>
       <div className={style.menu_section}>
-        {items.map(({ props: { index, label, icon } }) => (
+        {items.map(({ props: { index, label, icon, counter } }) => (
           <button
             key={`${index}`}
             onClick={() => changeTab(index)}
@@ -30,6 +30,7 @@ export function Tabs(props) {
             <span style={{ color: bindIndex === index ? "#ffff" : "#5e6165" }}>
               {label}
             </span>
+            {counter}
           </button>
         ))}
       </div>

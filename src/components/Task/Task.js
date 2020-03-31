@@ -4,6 +4,14 @@ import Icon from "../Utils/Icon";
 import { Tabs, TabItem } from "./TaskTabs";
 import PropTypes from "prop-types";
 
+const TaskCounter = ({ count }) => {
+  return (
+    <div className={styles.task_counter}>
+      <h3>{count}</h3>
+    </div>
+  );
+};
+
 const Task = props => {
   const [indexLayout, setIndexLayout] = useState("2");
   const [indexGeneral, setindexGeneral] = useState("1");
@@ -16,22 +24,20 @@ const Task = props => {
             icon={
               <Icon
                 color={indexLayout === "1" ? "primary" : "default"}
-                width='26'
-                height='26'
+                width={26}
+                height={26}
                 icon='list_view'
               />
             }
             label={"Grid view"}
             index='1'
-          >
-            Grid view
-          </TabItem>
+          ></TabItem>
           <TabItem
             icon={
               <Icon
                 color={indexLayout === "2" ? "primary" : "default"}
-                width='26'
-                height='26'
+                width={26}
+                height={26}
                 icon='grid_view'
               />
             }
@@ -45,25 +51,27 @@ const Task = props => {
             icon={
               <Icon
                 color={indexGeneral === "1" ? "primary" : "default"}
-                width='26'
-                height='26'
-                icon='list_view'
+                width={26}
+                height={26}
+                icon='active'
               />
             }
             label={"Active"}
             index='1'
+            counter={<TaskCounter count={8} />}
           ></TabItem>
           <TabItem
             icon={
               <Icon
                 color={indexGeneral === "2" ? "primary" : "default"}
-                width='26'
-                height='26'
-                icon='grid_view'
+                width={26}
+                height={26}
+                icon='completed'
               />
             }
             label={"Completed"}
             index='2'
+            counter={<TaskCounter count={5} />}
           ></TabItem>
         </Tabs>
         {/* <div className={styles.menu_section}>
