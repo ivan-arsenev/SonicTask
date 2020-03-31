@@ -1,24 +1,36 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  background-color: #2d3035;
+.tab_button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
 }
-.container svg {
-  padding: 35px 45px;
+.focus {
+  border-right: 2px solid #007bef;
+  background-color: #2f3237;
+  outline: 0;
 }
-
-.icon_active path {
-  fill: #389bff;
-}
-.icon_desabled path {
-  color: #5e6165;
-}
-.icon_normal path {
-  color: #5e6165;
+.tab_button:hover {
+  border-right: 2px solid #007bef;
 }
 
-.sideBar {
+.tabmenu {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  justify-content: flex-start;
   background-color: #2d3035;
+  width: 90px;
+  height: 100%;
+  margin-top: 72px;
+}
+.tabmenu button:last-child {
+  margin-top: auto;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.tabview {
+  margin: 70px 0px 0px 90px;
 }

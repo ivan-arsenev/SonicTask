@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Tabs, TabItem } from "./Tabs";
-import Icon from "./Icon";
-
-import { ReactComponent as chatIcon } from "./icons/Chat.svg";
+import Icon from "../Utils/Icon";
+import Task from "../Task/Task";
 
 // TODO : Починить последный expand его не видно, селектор на last child
 
 const SideBar = props => {
-  const [index, setIndex] = useState("1");
+  const [index, setIndex] = useState("3");
 
   return (
-    <Tabs defaultIndex='1' onTabClick={setIndex}>
+    <Tabs defaultIndex='3' onTabClick={setIndex}>
       <TabItem
         label={
           <Icon color={index === "1" ? "primary" : "default"} icon='home' />
@@ -34,7 +33,7 @@ const SideBar = props => {
         }
         index='3'
       >
-        Task
+        <Task />
       </TabItem>
       <TabItem
         label={

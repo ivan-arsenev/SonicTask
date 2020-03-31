@@ -14,17 +14,23 @@ export function Tabs(props) {
   const items = props.children.filter(item => item.type.name === "TabItem");
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.tabmenu}>
-        {items.map(({ props: { index, label } }) => (
+    <>
+      <div className={style.menu_section}>
+        {items.map(({ props: { index, label, icon, counter } }) => (
           <button
             key={`${index}`}
             onClick={() => changeTab(index)}
             className={
-              style.tab_button + " " + (bindIndex === index ? style.focus : "")
+              style.section_button +
+              " " +
+              (bindIndex === index ? style.focus : "")
             }
           >
-            {label}
+            {icon}
+            <span style={{ color: bindIndex === index ? "#ffff" : "#5e6165" }}>
+              {label}
+            </span>
+            {counter}
           </button>
         ))}
       </div>
@@ -38,6 +44,6 @@ export function Tabs(props) {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }
