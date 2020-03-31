@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Tabs.module.css";
+import style from "./styles.module.css";
 
 export function TabItem(props) {
   return <div {...props} />;

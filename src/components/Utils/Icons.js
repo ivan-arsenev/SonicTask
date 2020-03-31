@@ -1,5 +1,3 @@
-import React from "react";
-
 export const ICONS = {
   chat: {
     viewBox: "0 0 23 22",

@@ -27,7 +27,9 @@ export function Tabs(props) {
             }
           >
             {icon}
-            <span>{label}</span>
+            <span style={{ color: bindIndex === index ? "#ffff" : "#5e6165" }}>
+              {label}
+            </span>
           </button>
         ))}
       </div>

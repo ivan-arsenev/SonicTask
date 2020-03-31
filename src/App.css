@@ -7,6 +7,7 @@
   --line-color: #313439;
   --font-header: "Lato";
   --font-text: "Roboto";
+  --focus-button: #2f3237;
 }
 body {
   background-color: var(--main-bg-color);
