@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 const iconColors = {
   default: "#5e6165",
-  primary: "#389bff"
+  primary: "#389bff",
+  white: "#ffffff"
 };
 
 const Icon = props => {
