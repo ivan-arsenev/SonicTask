@@ -1,33 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Icon from "../Utils/Icon";
 import { Tabs, TabItem } from "./TaskTabs";
-import PropTypes from "prop-types";
-import TaskCard from "../TaskCard/TaskCard";
-import { ControlledInput } from "../Utils/InputHelpers";
+
 // placeholder
 import placeholder_avatar from "./avatar_placeholder.png";
 
 const CommentInput = props => {
+  const [inputValue, setInputValue] = useState("");
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    console.log(inputValue);
+  }, [inputValue]);
   return (
-    <div className={styles.comment_input}>
-      <ControlledInput
-        bg_color='#22252a'
+    <form
+      className={styles.comment_form}
+      onSubmit={e => {
+        e.preventDefault();
+        setInputValue(value);
+        setValue("");
+      }}
+    >
+      <input
+        className={styles.comment_input}
+        type='text'
+        value={value}
         placeholder='Add your comment...'
-        callback={val => console.log(val)}
+        onChange={({ target: { value } }) => setValue(value)}
       />
-    </div>
+    </form>
   );
 };
 
 const Comment = ({ nickname, avatar_url, comment_text }) => {
-  console.log(avatar_url);
   return (
     <div className={styles.comment_container}>
       <div className={styles.comment_title}>
         <img
           className={styles.comment_avatar}
-          src={avatar_url}
+          src={avatar_url === "" ? placeholder_avatar : avatar_url}
           alt='comment avatar'
         />
         <span className={styles.comment_nickname}>{nickname}</span>
@@ -43,9 +55,19 @@ const Card = ({
   project,
   priority_text,
   due_date,
-  description
+  description,
+  comments = []
 }) => {
   const [checkBox, setCheckBox] = useState(done);
+
+  let commentList = comments.map(comment => (
+    <Comment
+      nickname={comment.nickname}
+      avatar_url={comment.avatar_url}
+      comment_text={comment.comment_text}
+      key={comment.id}
+    />
+  ));
 
   return (
     <div className={styles.card}>
@@ -96,47 +118,90 @@ const Card = ({
         </div>
         <div className={styles.card_discription}>{description}</div>
       </div>
-      <Comment
-        nickname='John Due'
-        avatar_url={placeholder_avatar}
-        comment_text='This is unbelivable so cool, This is unbelivable so cool .This is unbelivable so cool'
-      />
-      <Comment
-        nickname='Stefan Sam'
-        avatar_url={placeholder_avatar}
-        comment_text='This is unbelivable so cool'
-      />
-      <Comment
-        nickname='Domenic Clock'
-        avatar_url={placeholder_avatar}
-        comment_text='Just want to say hi'
-      />
+      {commentList}
       <CommentInput />
     </div>
   );
 };
 
-const CardContainer = props => {
+const CardContainer = () => {
+  const cardInitialData = {
+    cards: [
+      {
+        id: "35",
+        title: "Make dinner!",
+        done: false,
+        project: "Home",
+        priority_text: "Modern",
+        due_date: "01.02.2020",
+        description: "Make dinner for this day, thank honny 😆️",
+        comments: [
+          {
+            nickname: "Ivan",
+            avatar_url: "",
+            comment_text: "I will try to do that!",
+            id: 1
+          },
+          {
+            nickname: "Mike",
+            avatar_url: "",
+            comment_text: "Wow, i hope you could do that",
+            id: 2
+          }
+        ]
+      },
+      {
+        id: "43",
+        title: "Take your trash out",
+        done: true,
+        project: "Office",
+        priority_text: "High",
+        due_date: "Today",
+        description: "Please, put your messy staff in trash and put it out",
+        comments: [
+          {
+            nickname: "John travis",
+            avatar_url: "",
+            comment_text: "I will try to do that!",
+            id: 1
+          },
+          {
+            nickname: "Mike",
+            avatar_url: "",
+            comment_text: "Wow, i hope you could do that",
+            id: 2
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className={styles.card_container}>
-      <Card
-        title='Integrate PayPal and Stripe 
-checkout '
-        done={true}
-        project='Payments'
-        priority_text='High'
-        due_date='Today'
-        description='This is example description so much staff goind there be cereful'
-      />
-      <Card
-        title='Integrate PayPal and Stripe 
-checkout '
-        done={true}
-        project='Payments'
-        priority_text='High'
-        due_date='Today'
-        description='This is example description so much staff goind there be cereful'
-      />
+      {cardInitialData.cards.map(card => {
+        let {
+          id,
+          title,
+          done,
+          project,
+          priority_text,
+          due_date,
+          description,
+          comments
+        } = card;
+        return (
+          <Card
+            key={id}
+            title={title}
+            done={done}
+            project={project}
+            priority_text={priority_text}
+            due_date={due_date}
+            description={description}
+            comments={comments}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -216,7 +281,5 @@ const Task = props => {
     </nav>
   );
 };
-
-Task.propTypes = {};
 
 export default Task;

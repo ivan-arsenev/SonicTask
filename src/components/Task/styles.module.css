@@ -4,6 +4,7 @@
   height: 100%;
   padding: 2px 0 0 0;
   display: flex;
+  border-left: 2px solid var(--line-color);
 }
 .menu_container {
   background-color: var(--secondary-bg-color);
@@ -87,13 +88,16 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   padding-bottom: 29px;
   border-bottom: 2px solid var(--line-color);
 }
 .card_titile {
   color: #ffffff;
   font-size: 18px;
+  margin-left: 20px;
+  flex-shrink: 2;
   font-family: var(--font-header);
 }
 .card_checkbox {
@@ -177,8 +181,15 @@
 .comment_avatar {
   margin-right: 8px;
 }
-.comment_input {
+.comment_form {
   margin-top: 30px;
   padding: 13px 21px;
   background-color: var(--main-bg-color);
+}
+.comment_input {
+  background-color: var(--main-bg-color);
+  border: none;
+  font-size: 18px;
+  color: var(--text-color);
+  outline: 0;
 }
