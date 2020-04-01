@@ -33,4 +33,6 @@
 }
 .tabview {
   margin: 70px 0px 0px 90px;
+  display: flex;
+  flex-direction: row;
 }

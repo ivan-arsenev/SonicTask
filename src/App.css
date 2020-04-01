@@ -2,8 +2,10 @@
 :root {
   --main-bg-color: #22252a;
   --secondary-bg-color: #2d3035;
+  --project-bg-color: #2f3237;
   --primary-color: #389bff;
   --text-color: #5e6165;
+  --text-color-white: #ffffff;
   --line-color: #313439;
   --font-header: "Lato";
   --font-text: "Roboto";

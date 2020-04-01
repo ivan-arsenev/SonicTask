@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "./components/SideBar/SideBar";
 import Nav from "./components/NavBar/Nav";
+
 import "./App.css";
 
 function App() {
