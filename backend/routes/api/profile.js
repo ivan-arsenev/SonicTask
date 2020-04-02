@@ -50,15 +50,19 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { status, location, bio, intrests } = req.body;
+    const { status, location, bio, interests } = req.body;
+
+    if (interests !== undefined) {
+      Array.isArray(interests)
+        ? interests
+        : interests.split(",").map(intrest => " " + intrest.trim());
+    }
 
     const profileFields = {
       user: req.user.id,
       location,
       bio,
-      intrests: Array.isArray(intrests)
-        ? intrests
-        : intrests.split(",").map(intrest => " " + intrest.trim()),
+      interests,
       status
     };
 
