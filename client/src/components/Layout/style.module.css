@@ -10,36 +10,106 @@
 
 /* Landing Page */
 .landing {
-  background-color: var(--main-bg-color);
+  background: var(--main-bg-color);
   height: 100vh;
+  display: flex;
 }
 
-.landing_inner {
-  color: #fff;
+.landing_left {
+  padding: 0 50px;
   height: 100%;
-  width: 80%;
+  width: 50%;
   margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
 }
-.lead {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.landing_right {
+  display: flex;
+  width: 50%;
+  padding: 120px 10px;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #06a68b 0%, #54c6ba 100%);
+}
+.landing_right h3 {
+  font-family: var(--font-header);
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 1.3px;
+  width: 390px;
+  text-align: center;
 }
 .links {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
 }
-.link_primary {
+.links span {
+  color: var(--text-color);
+  margin-right: 12px;
+}
+.landing_link {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 8px 15px 5px 0px;
+  font-family: var(--font-header);
   border: 0;
   border-bottom: 2px solid transparent;
-  color: white;
+  color: var(--text-color);
   font-size: 24px;
   text-decoration: none;
-  background-color: var(--secondary-bg-color);
+  letter-spacing: 1.3px;
+  transition: 0.3s;
+}
+.sign_in {
+  color: white;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.registration_form {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.registration_form h3 {
+  color: var(--text-color);
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.registration_form a {
+  color: var(--text-color);
+  font-size: 20px;
+  margin-bottom: 0;
+}
+.registration_form button {
+  width: 192px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #191c20;
+  font-size: 20px;
+  border-radius: 20px;
+  border: none;
+  margin-right: 30px;
+}
+.registration_form button:hover {
+  background: var(--secondary-bg-color);
+}
+.registration_form input {
+  width: 100%;
+  font-size: 18px;
+  padding: 12px 0;
+  background-color: var(--main-bg-color);
+  margin: 4px 0;
+  border: none;
+  color: var(--text-color-white);
+  display: inline-block;
+  border-bottom: 1px solid var(--text-color);
+  outline: 0;
+  box-sizing: border-box;
+}
+.registration_form input:focus {
+  border-bottom: 1px solid var(--primary-color);
 }
