@@ -4,34 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import styles from "./style.module.css";
 import { ReactComponent as Scene } from "./Scene/Wireframe.svg";
-
-const RegistrationForm = ({ signIn }) => {
-  return (
-    <form className={styles.registration_form} autoComplete='off'>
-      <h3>Full Name</h3>
-      <input
-        type='text'
-        autoComplete='off'
-        placeholder='Enter your full name'
-      />
-      <h3>Password</h3>
-      <input type='password' autoComplete='off' placeholder='......' />
-
-      <h3>E-Mail</h3>
-      <input type='email' placeholder='Your e-mail goes here' />
-      <div
-        style={{ display: "flex", marginTop: "110px", alignItems: "center" }}
-      >
-        <button onClick={() => console.log("click")}>
-          {signIn ? "Sign In" : "Sign Up"}
-        </button>
-        <Link to='/register'>
-          {signIn ? "Register new user" : "I’m already member"}
-        </Link>
-      </div>
-    </form>
-  );
-};
+import Register from "../auth/Register";
+import Login from "../auth/Login";
 
 const LandingLinks = ({ signIn, setSignIn }) => {
   return (
@@ -64,7 +38,7 @@ const Landing = ({ isAuthenticated }) => {
     <section className={styles.landing}>
       <div className={styles.landing_left}>
         <LandingLinks signIn={signIn} setSignIn={setSignIn} />
-        <RegistrationForm signIn={signIn} />
+        {signIn ? <Login signIn={signIn} /> : <Register signIn={signIn} />}
       </div>
       <div className={styles.landing_right}>
         <h3>Plan your activities and control your progress online</h3>
@@ -79,8 +53,7 @@ Landing.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  // isAuthenticated: state.auth.isAuthenticated
-  isAuthenticated: false
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps)(Landing);
