@@ -1,6 +1,6 @@
 import {
   REGISTER_SUCCESS,
-  // REGISTER_FAIL,
+  //REGISTER_FAIL,
   USER_LOADED,
   //AUTH_ERROR,
   LOGIN_SUCCESS,
@@ -34,6 +34,7 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
       };
+
     case LOGIN_SUCCESS:
       return {
         ...state,

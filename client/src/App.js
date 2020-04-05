@@ -21,7 +21,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           <Route exact path='/' component={Landing} />
           <Route component={Routes} />
