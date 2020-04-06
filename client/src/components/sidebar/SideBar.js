@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 import { Tabs, TabItem } from "./Tabs";
-import Icon from "../Utils/Icon";
+import Icon from "../icon/Icon";
 import Task from "../Task/Task";
 
 // TODO : Починить последный expand его не видно, селектор на last child
 
-const SideBar = props => {
+const SideBar = (props) => {
   const [index, setIndex] = useState("3");
 
   return (

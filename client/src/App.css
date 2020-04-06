@@ -12,12 +12,18 @@
   --font-header: "Lato";
   --font-text: "Roboto";
   --focus-button: #2f3237;
+
+  --dark-color: #343a40;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--text-color);
   opacity: 1; /* Firefox */
 }
+
 button {
   font-family: "Roboto";
   color: white;
@@ -27,12 +33,14 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   color: var(--text-color-white);
-  margin: 0;
-  padding: 0;
+
   font-size: 16px;
 }
 * {
   outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
@@ -47,4 +55,55 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px #22252a inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Utilities */
+.container {
+  overflow: hidden;
+
+  margin-bottom: 3rem;
+}
+/* Alert */
+.alert {
+  padding: 4px;
+  position: absolute;
+
+  opacity: 0.8;
+  z-index: 1;
+  width: 100%;
+
+  background: var(--light-color);
+  color: #333;
+}
+
+.alert-primary {
+  background: var(--primary-color);
+
+  color: #fff;
+}
+
+.alert-light {
+  background: var(--light-color);
+  color: #333;
+}
+
+.alert-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.alert-danger {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
+
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
 }

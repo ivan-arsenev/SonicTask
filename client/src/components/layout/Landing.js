@@ -11,7 +11,9 @@ const LandingLinks = ({ signIn, setSignIn }) => {
   return (
     <div className={styles.links}>
       <div
-        onClick={() => setSignIn(!signIn)}
+        onClick={() => {
+          setSignIn(!signIn);
+        }}
         className={styles.landing_link + " " + (signIn ? styles.sign_in : "")}
       >
         Sign In
@@ -23,6 +25,7 @@ const LandingLinks = ({ signIn, setSignIn }) => {
       >
         Sign Up
       </div>
+      {signIn ? <Redirect to='./login' /> : <Redirect to='./register' />}
     </div>
   );
 };
@@ -49,11 +52,11 @@ const Landing = ({ isAuthenticated }) => {
 };
 
 Landing.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps)(Landing);
