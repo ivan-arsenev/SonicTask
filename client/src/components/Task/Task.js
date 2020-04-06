@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
-import Icon from "../Utils/Icon";
+import Icon from "../icon/Icon";
 import { Tabs, TabItem } from "./TaskTabs";
 
 // placeholder
 import placeholder_avatar from "./avatar_placeholder.png";
 
-const CommentInput = props => {
+const CommentInput = (props) => {
   const [inputValue, setInputValue] = useState("");
   const [value, setValue] = useState("");
 
@@ -16,7 +16,7 @@ const CommentInput = props => {
   return (
     <form
       className={styles.comment_form}
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         setInputValue(value);
         setValue("");
@@ -56,11 +56,11 @@ const Card = ({
   priority_text,
   due_date,
   description,
-  comments = []
+  comments = [],
 }) => {
   const [checkBox, setCheckBox] = useState(done);
 
-  let commentList = comments.map(comment => (
+  let commentList = comments.map((comment) => (
     <Comment
       nickname={comment.nickname}
       avatar_url={comment.avatar_url}
@@ -89,7 +89,7 @@ const Card = ({
             height: "12px",
             width: "12px",
             borderRadius: "5px",
-            marginRight: "15px"
+            marginRight: "15px",
           }}
         ></div>
         <span className={styles.card_project_title}>Project:</span>
@@ -104,7 +104,7 @@ const Card = ({
                 height: "12px",
                 width: "12px",
                 borderRadius: "5px",
-                marginRight: "15px"
+                marginRight: "15px",
               }}
             ></div>
             <div className={styles.card_project_title}>Priority:</div>
@@ -140,15 +140,15 @@ const CardContainer = () => {
             nickname: "Ivan",
             avatar_url: "",
             comment_text: "I will try to do that!",
-            id: 1
+            id: 1,
           },
           {
             nickname: "Mike",
             avatar_url: "",
             comment_text: "Wow, i hope you could do that",
-            id: 2
-          }
-        ]
+            id: 2,
+          },
+        ],
       },
       {
         id: "43",
@@ -163,22 +163,22 @@ const CardContainer = () => {
             nickname: "John travis",
             avatar_url: "",
             comment_text: "I will try to do that!",
-            id: 1
+            id: 1,
           },
           {
             nickname: "Mike",
             avatar_url: "",
             comment_text: "Wow, i hope you could do that",
-            id: 2
-          }
-        ]
-      }
-    ]
+            id: 2,
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <div className={styles.card_container}>
-      {cardInitialData.cards.map(card => {
+      {cardInitialData.cards.map((card) => {
         let {
           id,
           title,
@@ -187,7 +187,7 @@ const CardContainer = () => {
           priority_text,
           due_date,
           description,
-          comments
+          comments,
         } = card;
         return (
           <Card
@@ -214,7 +214,7 @@ const TaskCounter = ({ count }) => {
   );
 };
 
-const Task = props => {
+const Task = (props) => {
   const [indexLayout, setIndexLayout] = useState("2");
   const [indexGeneral, setindexGeneral] = useState("1");
   return (

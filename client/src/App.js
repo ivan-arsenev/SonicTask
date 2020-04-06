@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "./components/SideBar/SideBar";
-import Nav from "./components/NavBar/Nav";
+import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -21,7 +20,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        {/* <Nav /> */}
+        <Navbar />
         <Switch>
           <Route exact path='/' component={Landing} />
           <Route component={Routes} />
